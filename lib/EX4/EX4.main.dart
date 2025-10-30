@@ -13,13 +13,10 @@ void main() {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  // Using CustomCard widget for each item
-                  // Example uses Material color shades (Colors.blue[100], etc.)
                   CustomCard(text: 'OOP', color: Colors.blue[100]),
                   const SizedBox(height: 20),
                   CustomCard(text: 'DART', color: Colors.blue[300]),
                   const SizedBox(height: 20),
-                  // Simple solid color example to match provided format
                   CustomCard(
                     text: 'FLUTTER',
                     color: Colors.blue[600],
@@ -41,11 +38,11 @@ void main() {
 
 class CustomCard extends StatelessWidget {
   final String text;
-  // allow nullable so callers can pass Colors.blue[100]
+
   final Color? color;
-  // direct Gradient if caller wants to provide one
+
   final Gradient? gradient;
-  // bonus: accept a list of colors and build a LinearGradient from them
+
   final List<Color>? gradientColors;
 
   const CustomCard({
@@ -58,7 +55,7 @@ class CustomCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // If gradientColors provided, construct a LinearGradient (takes precedence)
+
     Gradient? effectiveGradient = gradient;
     if (gradientColors != null && gradientColors!.isNotEmpty) {
       effectiveGradient = LinearGradient(
